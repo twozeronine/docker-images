@@ -8,5 +8,5 @@ RUN apt-get update -y \
     # Clean UP
     && apt-get -y autoremove \
     && apt-get -y clean \
-    && rm -rf /var/lib/apt/lists/*_* 
+    && rm -rf /var/lib/apt/lists/*
 ENV LANG=C.UTF-8
