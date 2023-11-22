@@ -1,21 +1,6 @@
-ARG ELIXIR_VERSION=1.15.6
-ARG ERLANG_VERSION=26.1.1
 ARG UBUNTU_VERSION=jammy-20230126
-FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VERSION}  as builder
-ARG _MIX_ENV
 
-RUN apt-get update
-WORKDIR /src
-COPY . .
-RUN mix local.hex --force
-RUN mix deps.get
-
-# Create a Mix.Release of the application
-RUN MIX_ENV=${_MIX_ENV} mix release
-RUN mv _build/${_MIX_ENV}/rel/oban_exporter /opt/release
-RUN mv /opt/release/bin/oban_exporter /opt/release/bin/app
-
-FROM ubuntu:${UBUNTU_VERSION} as runner
+FROM ubuntu:${UBUNTU_VERSION}
 RUN apt-get update -y \
     && apt-get -y install --no-install-recommends \ 
     locales \
@@ -25,6 +10,3 @@ RUN apt-get update -y \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*_* 
 ENV LANG=C.UTF-8
-WORKDIR /opt/release
-COPY --from=builder /opt/release .
-CMD /opt/release/bin/app start
