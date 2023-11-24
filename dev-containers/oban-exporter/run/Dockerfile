@@ -1,7 +1,6 @@
 ARG UBUNTU_VERSION=jammy-20230126
 
 FROM ubuntu:${UBUNTU_VERSION}
-LABEL org.opencontainers.image.source="https://github.com/twozeronine/docker-images"
 RUN apt-get update -y \
     && apt-get -y install --no-install-recommends \ 
     locales \

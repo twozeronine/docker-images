@@ -2,7 +2,6 @@ ARG ELIXIR_VERSION=1.15.6
 ARG ERLANG_VERSION=26.1.1
 ARG UBUNTU_VERSION=jammy-20230126
 FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VERSION}
-LABEL org.opencontainers.image.source="https://github.com/twozeronine/docker-images"
 
 # for phx.new
 ARG PHOENIX_VERSION="1.7.8"
