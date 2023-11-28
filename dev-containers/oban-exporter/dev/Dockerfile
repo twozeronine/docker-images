@@ -1,14 +1,12 @@
-FROM elixir:1.14.5-otp-24
-# ARG ELIXIR_VERSION=1.15.6
-# ARG ERLANG_VERSION=25.3.2.7
-# ARG UBUNTU_VERSION=jammy-20230126
-# FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VERSION}
+# FROM elixir:1.14.5-otp-24
+ARG ELIXIR_VERSION=1.15.6
+ARG ERLANG_VERSION=25.3.2.7
+ARG UBUNTU_VERSION=jammy-20230126
+FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VERSION}
 LABEL org.opencontainers.image.source=https://github.com/twozeronine/docker-images
 
 # for phx.new
 ARG PHOENIX_VERSION="1.7.2"
-# WORKDIR /app
-# ENV MIX_HOME /app
 RUN apt-get update
 RUN apt-get -y install --no-install-recommends \
     curl \
