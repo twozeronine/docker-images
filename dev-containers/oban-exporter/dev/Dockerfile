@@ -6,6 +6,7 @@ LABEL org.opencontainers.image.source=https://github.com/twozeronine/docker-imag
 
 # for phx.new
 ARG PHOENIX_VERSION="1.7.2"
+ENV MIX_HOME .
 RUN apt-get update
 RUN apt-get -y install --no-install-recommends \
     curl \
