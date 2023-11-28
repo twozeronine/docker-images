@@ -30,4 +30,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/*
 # Phoenix
 RUN su vscode -c  "mix local.hex --force"
 RUN su vscode -c  "mix local.rebar --force"
-RUN su vscode -c  "mix archive.install hex phx_new --force ${PHOENIX_VERSION}"
+RUN su vscode -c  "mix archive.install hex phx_new ${PHOENIX_VERSION}"
