@@ -25,10 +25,10 @@ RUN INSTALLZSH=false \
     /bin/bash /tmp/features-main/src/common-utils/install.sh
 RUN VERSION=latest \
     && /bin/bash /tmp/features-main/src/github-cli/install.sh
-# Phoenix
-RUN su vscode -c  "mix local.hex --force"
-RUN su vscode -c  "mix local.rebar --force"
-RUN su vscode -c  "mix archive.install hex phx_new 1.7.2"
 RUN apt-get -y autoremove
 RUN apt-get -y clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/*
+# Phoenix
+RUN su vscode -c  "mix local.hex --force"
+RUN su vscode -c  "mix local.rebar --force"
+RUN su vscode -c  "mix archive.install --force hex phx_new https://github.com/phoenixframework/archives/raw/master/phx_new.ez"
