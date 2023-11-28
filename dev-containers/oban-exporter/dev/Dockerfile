@@ -26,7 +26,7 @@ RUN DEBIAN_FRONTEND=nointeractive \
     NONFREEPACKAGES=false \
     /bin/bash /tmp/features-main/src/common-utils/install.sh \
     # features/github-cli
-    && VERION=latest \
+    && VERSION=latest \
     && /bin/bash /tmp/features-main/src/github-cli/install.sh \
     # Clean Up
     && apt-get -y autoremove \ 
