@@ -35,6 +35,7 @@ jobs:
           context: dev-containers/oban-exporter/dev
           platforms:
             linux/amd64
+            linux/arm64
           tags: |
             ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/dev:latest
             ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/dev:${{ github.sha }}
