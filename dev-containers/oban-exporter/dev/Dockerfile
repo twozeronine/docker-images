@@ -5,7 +5,7 @@ FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VER
 LABEL org.opencontainers.image.source=https://github.com/twozeronine/docker-images
 
 # for phx.new
-ARG PHOENIX_VERSION="1.7.8"
+ARG PHOENIX_VERSION="1.6.0"
 RUN apt-get update
 RUN apt-get -y install --no-install-recommends \
     curl \
