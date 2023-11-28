@@ -33,20 +33,19 @@ jobs:
         with:
           push: true
           context: dev-containers/oban-exporter/dev
-          platforms: |
-            linux/amd64
+          platforms: 
             linux/arm64/v8
           tags: |
             ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/dev:latest
             ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/dev:${{ github.sha }}
 
-      - name: Build and push Docker image run
-        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
-        with:
-          push: true
-          context: dev-containers/oban-exporter/run
-          platforms:
-            linux/amd64
-          tags: |
-            ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/run:latest
-            ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/run:${{ github.sha }}
+      # - name: Build and push Docker image run
+      #   uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
+      #   with:
+      #     push: true
+      #     context: dev-containers/oban-exporter/run
+      #     platforms:
+      #       linux/amd64
+      #     tags: |
+      #       ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/run:latest
+      #       ghcr.io/${{ github.repository }}/dev-containers/oban-exporter/run:${{ github.sha }}
