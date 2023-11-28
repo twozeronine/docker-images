@@ -5,7 +5,7 @@ FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VER
 LABEL org.opencontainers.image.source=https://github.com/twozeronine/docker-images
 
 # for phx.new
-ARG PHOENIX_VERSION="1.6.0"
+ARG PHOENIX_VERSION="1.7.2"
 RUN apt-get update
 RUN apt-get -y install --no-install-recommends \
     curl \
@@ -30,4 +30,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/*
 # Phoenix
 RUN su vscode -c  "mix local.hex --force"
 RUN su vscode -c  "mix local.rebar --force"
-RUN su vscode -c  "mix archive.install hex phx_new ${PHOENIX_VERSION}"
+RUN su vscode -c  "mix archive.install hex phx_new 1.7.2"
