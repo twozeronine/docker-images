@@ -4,8 +4,6 @@ ARG UBUNTU_VERSION=jammy-20220428
 FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-ubuntu-${UBUNTU_VERSION}
 LABEL org.opencontainers.image.source=https://github.com/twozeronine/docker-images
 
-# for phx.new
-ARG PHOENIX_VERSION="1.7.8"
 RUN DEBIAN_FRONTEND=nointeractive \
     && apt-get update \
     && apt-get -y install --no-install-recommends \
@@ -32,7 +30,3 @@ RUN DEBIAN_FRONTEND=nointeractive \
     && apt-get -y autoremove \ 
     && apt-get -y clean \ 
     && rm -rf /var/lib/apt/lists/* /tmp/* \
-    # Phoenix
-    && mix local.hex --force \ 
-    && mix local.rebar --force \
-    && mix archive.install hex phx_new --force ${PHOENIX_VERSION}
