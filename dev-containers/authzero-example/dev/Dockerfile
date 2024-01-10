@@ -8,6 +8,7 @@ RUN DEBIAN_FRONTEND=nointeractive \
     && apt-get update \
     && apt-get -y install --no-install-recommends \
     curl \
+    ca-certificates \
     unzip \
     # features
     && curl -sSL https://github.com/devcontainers/features/archive/refs/heads/main.zip -o /tmp/features-main.zip \
